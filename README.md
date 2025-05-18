@@ -4,20 +4,23 @@ This repository contains the source code and dataset used in the research projec
 
 ---
 
-## 🧠 Overview
+## Overview
 
 **STAT-X** investigates the application of **supervised machine learning algorithms** to short-term temperature forecasting using historical weather data from **1973 to 2024**. The project focuses on **interpretable and accurate** predictions by integrating **Explainable AI (XAI)** tools.
 
 ---
 
-## 📅 Dataset
+## Dataset
 
 * **Location**: Kolkata, India
 * **Time Range**: 1973–2024
 * **Features**: 13 weather-related attributes, including:
 * **Target**: Predict Minimum and Maximum temperatures for the next 3 days
 
+---
 
+## Methodology
+ 
 * **Algorithms Used**:
 
   * Linear Regression
