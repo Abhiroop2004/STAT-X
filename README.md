@@ -1,5 +1,9 @@
 # 📈 STAT-X: Short-term Atmospheric Temperature Forecasting using Machine Learning Models with Explainable-AI
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" height="100"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit-learn" height="100"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" alt="TensorFlow" height="100"/>
+
 This repository contains the source code and dataset used in the research project **STAT-X**, which explores machine learning-based approaches to forecast **minimum and maximum daily temperatures** for the upcoming three days in **Kolkata, India**.
 
 ---
@@ -20,7 +24,7 @@ This repository contains the source code and dataset used in the research projec
 ---
 
 ## Methodology
- 
+
 * **Algorithms Used**:
 
   * Linear Regression
