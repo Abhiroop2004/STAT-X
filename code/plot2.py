@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 import numpy as np
-
-#x = ['Linear Regression', 'Decision Tree Regressor','Random Forest Regressor','Bagging Regressor', 'Gradient Boosting Tree', 'Multi-Layer Perceptron']
 x = ['LR', 'DTR','RFR','BGR', 'GBR', 'MLP']
 y_rsme = [[1.4937046497635849, 1.6224234052611028, 1.5128159620979447, 1.5188263420026589, 1.4526338499771998 , 1.4743369817733765], 
           [1.9422089418216215, 2.010460123089262, 1.918275498781776, 1.921220275481479, 1.859069740743164,  1.9027711153030396], 
@@ -25,47 +24,39 @@ y_wi =[[0.7824791741586985, 0.7452340128026402, 0.7781904686618359, 0.7762554042
 y_pb = [[-0.019072045925809866, -0.4368795406640294, -0.4294338643690722, -0.4524685754899728, 0.12795193191198934, 0.27092860304668326],
         [-0.19469023121832182, -0.8101986588689676, -0.6843365329362938, -0.7170143831587334,  0.1126551345103642, 0.18444909216418132],
         [-0.18788580524133494, -0.9051915929332155, -0.730924258310039, -0.7039647704967356, 0.15103298993605843, 0.30137357359142725]]
-fig = plt.figure(figsize=(10, 15), dpi=80)
 
-plt.subplots_adjust(wspace=0.5, hspace=0.5)
+scores_data = [y_rsme, y_mae, y_mape, y_r2, y_wi, y_pb]
+score_names = ["RSME", "MAE", "MAPE", "R2", "WI", "PBIAS"]
+models = ['LR', 'DTR', 'RFR', 'BGR', 'GBR', 'MLP']
+days_ahead = ['1-Day Ahead', '2-Day Ahead', '3-Day Ahead']
 
-plt.subplot(3, 2, 1)
-plt.plot(x, y_rsme[0], marker='o', color='skyblue')
-plt.plot(x, y_rsme[1], marker='o', color='lightcoral')
-plt.plot(x, y_rsme[2], marker='o', color='yellowgreen')
-plt.title("RSME")
+num_scores = len(score_names)
+angles = np.linspace(0, 2 * np.pi, num_scores, endpoint=False) # {Link: Python Graph Gallery https://python-graph-gallery.com/web-radar-chart-with-matplotlib/}
+anglesc = np.concatenate((angles, [angles[0]]))  # Close the radar chart shape
 
-plt.subplot(3, 2, 2)
-plt.plot(x, y_mae[0], marker='o', color='skyblue')
-plt.plot(x, y_mae[1], marker='o', color='lightcoral')
-plt.plot(x, y_mae[2], marker='o', color='yellowgreen')
-plt.title("MAE")
+fig, axs = plt.subplots(1, 3, figsize=(15, 8), subplot_kw=dict(polar=True)) # {Link: CodeSignal https://codesignal.com/learn/courses/customizing-and-styling-plots/lessons/multi-figure-layouts-with-matplotlib}
 
-plt.subplot(3, 2, 3)
-plt.plot(x, y_mape[0], marker='o', color='skyblue')
-plt.plot(x, y_mape[1], marker='o', color='lightcoral')
-plt.plot(x, y_mape[2], marker='o', color='yellowgreen')
-plt.title("MAPE")
+# Colors for the models
+model_colors = ['skyblue', 'lightcoral', 'yellowgreen', 'coral', 'orchid', 'sandybrown']
 
-plt.subplot(3, 2, 4)
-plt.plot(x, y_r2[0], marker='o', color='skyblue')
-plt.plot(x, y_r2[1], marker='o', color='lightcoral')
-plt.plot(x, y_r2[2], marker='o', color='yellowgreen')
-plt.title("R2")
 
-plt.subplot(3, 2, 5)
-plt.plot(x, y_wi[0], marker='o', color='skyblue')
-plt.plot(x, y_wi[1], marker='o', color='lightcoral')
-plt.plot(x, y_wi[2], marker='o', color='yellowgreen')
-plt.title("WI")
+for i, day in enumerate(days_ahead):
+    ax = axs[i]
+    ax.set_theta_offset(np.pi / 2)  # Set the start angle at the top
+    ax.set_theta_direction(-1) # Plot clock-wise
 
-plt.subplot(3, 2, 6)
-plt.plot(x, y_pb[0], marker='o', color='skyblue')
-plt.plot(x, y_pb[1], marker='o', color='lightcoral')
-plt.plot(x, y_pb[2], marker='o', color='yellowgreen')
-plt.title("PBIAS")
+    # Set the labels for the axes (scores)
+    ax.set_thetagrids(np.degrees(angles), score_names) # {Link: Python Graph Gallery https://python-graph-gallery.com/web-radar-chart-with-matplotlib/}
 
-fig.legend(['1-Day Ahead', '2-Day Ahead', '3-Day Ahead'], loc='upper center', ncol=3, bbox_to_anchor=(0.5, 0.99))
+    # Plot each model's performance on the radar chart for the current day
+    for j in range(len(models)):
+        values = [scores_data[k][i][j] for k in range(num_scores)] # Get scores for model j for day i
+        values = np.concatenate((values, [values[0]]))  # Close the shape
+        ax.plot(anglesc, values, 'o-', linewidth=1.5, linestyle=':', color=model_colors[j], label=models[j]) 
 
-fig.tight_layout(rect=[0, 0.2, 0, 0])
+    ax.set_title(day, y=1.1) 
+    if i == 2: ax.legend(loc='upper right', bbox_to_anchor=(1, 1.3), fontsize='medium')
+    ax.grid(True)
+
+plt.tight_layout()
 plt.show()
