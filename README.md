@@ -1,8 +1,8 @@
 # 📈 STAT-X: Short-term Atmospheric Temperature Forecasting using Machine Learning Models with Explainable-AI
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
-[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.7%2B-f7931e.svg)](https://scikit-learn.org/)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.19%2B-ff6f00.svg)](https://www.tensorflow.org/)
+[![Python](https://img.shields.io/badge/Python-3.10.11%2B-blue.svg)](https://www.python.org/)
+[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.7.0%2B-f7931e.svg)](https://scikit-learn.org/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.19.0%2B-ff6f00.svg)](https://www.tensorflow.org/)
 
 
 This repository contains the source code and dataset used in the research project **STAT-X**, which explores machine learning-based approaches to forecast **minimum and maximum daily temperatures** for the upcoming three days in **Kolkata, India**.
@@ -13,16 +13,14 @@ This repository contains the source code and dataset used in the research projec
 
 **STAT-X** investigates the application of **supervised machine learning algorithms** to short-term temperature forecasting using historical weather data from **1973 to 2024**. The project focuses on **interpretable and accurate** predictions by integrating **Explainable AI (XAI)** tools.
 
----
 
 ## Dataset
 
 * **Location**: Kolkata, India
 * **Time Range**: 1973–2024
-* **Features**: 13 weather-related attributes, including:
+* **Features**: 13 weather-related attributes
 * **Target**: Predict Minimum and Maximum temperatures for the next 3 days
 
----
 
 ## Methodology
 
@@ -41,24 +39,20 @@ This repository contains the source code and dataset used in the research projec
   * Root Mean Squared Error (RMSE)
   * Mean Absolute Percentage Error (MAPE)
   * Coefficient of Determination (R² Score)
+  * Willmott Index (WI)
+  * Percent Bias (PBias)
 
-
----
 
 ## 🧠 Explainability
 
 * **SHAP (SHapley Additive exPlanations)** – for global and local feature importance
 * **LIME (Local Interpretable Model-agnostic Explanations)** – for instance-level explanations
 
----
 
 ## 📁 Contents
 
 * Jupyter Notebook code files in `\code\`
 * Data in `\data\`
 
----
-
 For questions or more details, feel free to reach out. Citation details will be added upon publication.
 
----
