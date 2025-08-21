@@ -61,4 +61,5 @@ For questions or more details, feel free to reach out.
 If our work has been useful for your project please Cite us as,
 
 Sarkar, A., Guha Roy, D. & Datta, P. STAT-X: short-term atmospheric temperature forecasting using machine learning models with explainable-AI. Theor Appl Climatol 156, 471 (2025). https://doi.org/10.1007/s00704-025-05693-8
+
 Or visit this [link](https://link.springer.com/article/10.1007/s00704-025-05693-8#citeas)
