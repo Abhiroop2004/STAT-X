@@ -7,6 +7,7 @@
 
 This repository contains the source code and dataset used in the research project **STAT-X**, which explores machine learning-based approaches to forecast **minimum and maximum daily temperatures** for the upcoming three days in **Kolkata, India**.
 
+[DOI](https://doi.org/10.1007/s00704-025-05693-8)
 ---
 
 ## Overview
@@ -54,5 +55,5 @@ This repository contains the source code and dataset used in the research projec
 * Jupyter Notebook code files in `\code\`
 * Data in `\data\`
 
-For questions or more details, feel free to reach out. Citation details will be added upon publication.
+For questions or more details, feel free to reach out.
 
